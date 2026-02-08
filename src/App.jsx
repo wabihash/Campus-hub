@@ -1,4 +1,3 @@
-import './App.css'
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import{ context } from './context/DataContext';
@@ -14,7 +13,7 @@ import Department from './pages/Departments';
 import MyQuestions from './pages/MyQuestions';
 import CategoryDetail from './pages/CategoryDetail';
 import AdminDashboard from './pages/AdminDashboard';
-
+import './App.css'
 function App() {
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(null);
