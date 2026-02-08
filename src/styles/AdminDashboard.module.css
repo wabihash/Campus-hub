@@ -1,0 +1,826 @@
+.adminContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 16px;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* Toast Notification */
+.statusToast {
+  position: fixed;
+  top: 20px;
+  right: 16px;
+  left: 16px;
+  padding: 14px 20px;
+  border-radius: 12px;
+  color: white;
+  font-weight: 600;
+  z-index: 2000;
+  animation: slideInDown 0.3s ease-out;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+   
+
+.success { 
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  border-left: 4px solid #047857;
+}
+
+.error { 
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  border-left: 4px solid #b91c1c;
+}
+
+@keyframes slideInDown {
+  from { transform: translateY(-100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Header */
+.adminHeader {
+  margin: 20px 0 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.headerTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.headerLeft {
+  flex: 1;
+  min-width: 0;
+}
+
+.adminHeader h1 { 
+  font-size: 1.75rem; 
+  color: #0f172a;
+  font-weight: 800;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+  margin: 0;
+  display: inline-block;
+}
+
+.statsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 0;
+}
+
+.statsBadge {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  padding: 10px 18px;
+  border-radius: 12px;
+  font-weight: 600;
+  color: white;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+  white-space: nowrap;
+}
+
+/* Main Content Layout */
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+/* Management Grid */
+.managementGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.addFormsRow {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.managementListsRow {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Admin Card Styles */
+.adminCard {
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.adminCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.adminCard h3 {
+  margin: 0 0 16px;
+  font-size: 1.1rem;
+  color: #1e293b;
+  font-weight: 700;
+}
+
+.adminForm { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 12px; 
+}
+
+.adminForm input {
+  padding: 12px 16px;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+  background: #f8fafc;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.adminForm input:focus { 
+  border-color: #3b82f6; 
+  background: white;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  outline: none;
+}
+
+.addBtn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+  width: 100%;
+}
+
+.addBtn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+}
+
+/* List Card Styles */
+.listCard {
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  width: 100%;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.cardHeader h3 {
+  font-size: 1.1rem;
+  color: #1e293b;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+}
+
+.count {
+  background: #f1f5f9;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #475569;
+  min-width: 30px;
+  text-align: center;
+}
+
+.itemScrollList {
+  max-height: 250px;
+  overflow-y: auto;
+  border-radius: 8px;
+  border: 1px solid #f1f5f9;
+  padding: 8px;
+}
+
+.listItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 6px;
+  background: #f8fafc;
+  transition: background 0.2s;
+}
+
+.listItem:hover {
+  background: #f1f5f9;
+}
+
+.listItem span { 
+  font-size: 0.95rem; 
+  color: #334155;
+  font-weight: 500;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-right: 10px;
+}
+
+.listItem input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 2px solid #3b82f6;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  background: white;
+  box-sizing: border-box;
+}
+
+.listItemActions {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.listItem button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.2s;
+  min-width: 60px;
+}
+
+.editBtn {
+  color: #3b82f6;
+  background: rgba(59, 130, 246, 0.1);
+}
+
+.editBtn:hover {
+  background: rgba(59, 130, 246, 0.2);
+}
+
+.deleteBtnSmall {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.deleteBtnSmall:hover {
+  background: rgba(239, 68, 68, 0.2);
+}
+
+/* Questions Section */
+.questionsSection {
+  width: 100%;
+}
+
+.questionsHeader {
+  background: white;
+  padding: 24px;
+  border-radius: 16px 16px 0 0;
+  border: 1px solid #e2e8f0;
+  border-bottom: none;
+}
+
+.headerTopRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.questionsHeader h2 {
+  font-size: 1.25rem;
+  color: #1e293b;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+}
+
+.viewToggle {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.viewAllBtn {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  color: white;
+  padding: 8px 18px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.viewAllBtn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.viewAllBtn.viewingAll {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+.questionsCount {
+  background: #f1f5f9;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #475569;
+}
+
+/* Search Section */
+.searchContainer {
+  margin-top: 16px;
+  width: 100%;
+}
+
+.searchTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  color: #64748b;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.searchWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 14px 50px 14px 20px;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 1rem;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s;
+  box-sizing: border-box;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.15);
+}
+
+.searchIcon {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+  pointer-events: none;
+}
+
+/* Table Design */
+.tableWrapper {
+  background: white;
+  border-radius: 0 0 16px 16px;
+  border: 1px solid #e2e8f0;
+  overflow-x: auto;
+  width: 100%;
+}
+
+.adminTable {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+}
+
+.adminTable th { 
+  background: #f8fafc; 
+  padding: 16px 20px; 
+  text-align: left; 
+  font-size: 0.85rem; 
+  color: #64748b;
+  font-weight: 600;
+  white-space: nowrap;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.adminTable td { 
+  padding: 16px 20px;
+  border-bottom: 1px solid #f1f5f9;
+  color: #475569;
+  font-size: 0.9rem;
+  vertical-align: middle;
+}
+
+.adminTable tr:last-child td {
+  border-bottom: none;
+}
+
+.adminTable tr:hover td {
+  background: #f8fafc;
+}
+
+.userCell { 
+  display: flex; 
+  align-items: center; 
+  gap: 12px; 
+  font-weight: 600; 
+  color: #1e293b;
+  cursor: pointer;
+  min-width: 150px;
+}
+
+.avatar { 
+  width: 36px; 
+  height: 36px; 
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  color: white; 
+  border-radius: 50%; 
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  font-size: 0.9rem;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.titleCell { 
+  color: #1e293b; 
+  font-weight: 500;
+  cursor: pointer;
+  color: #3b82f6;
+  transition: color 0.2s;
+  min-width: 200px;
+}
+
+.titleCell:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
+.deleteBtn {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.deleteBtn:hover {
+  background: #ef4444;
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+/* Loading States */
+.loaderContainer { 
+  height: 100vh; 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center; 
+  gap: 20px; 
+  padding: 20px;
+}
+
+.spinner { 
+  width: 50px; 
+  height: 50px; 
+  border: 3px solid #f3f3f3; 
+  border-top: 3px solid #3b82f6; 
+  border-radius: 50%; 
+  animation: spin 1s linear infinite; 
+}
+
+@keyframes spin { 
+  0% { transform: rotate(0deg); } 
+  100% { transform: rotate(360deg); } 
+}
+
+/* Skeleton Loading */
+.skeletonCard {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  margin-bottom: 10px;
+  animation: pulse 1.5s infinite;
+}
+
+.skeletonTitle {
+  height: 20px;
+  width: 60%;
+  background: #f1f5f9;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+
+.skeletonText {
+  height: 16px;
+  width: 90%;
+  background: #f1f5f9;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+
+.skeletonFooter {
+  height: 14px;
+  width: 30%;
+  background: #f1f5f9;
+  border-radius: 6px;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Empty State */
+.emptySearch {
+  text-align: center;
+  padding: 60px 20px;
+  background: white;
+  border-radius: 16px;
+  border: 2px dashed #e2e8f0;
+  margin: 0;
+}
+
+.emptySearchIcon {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  color: #94a3b8;
+}
+
+.emptySearch h3 {
+  color: #1e293b;
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+}
+
+.emptySearch p {
+  color: #64748b;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+}
+
+/* Modal Styles */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3000;
+  padding: 16px;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.modal {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  width: 100%;
+  max-width: 320px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  animation: modalScale 0.2s ease-out;
+  box-sizing: border-box;
+  border: 1px solid #e2e8f0;
+}
+
+.warningIcon {
+  font-size: 1.75rem;
+  margin-bottom: 12px;
+  color: #ef4444;
+}
+
+.modal h3 {
+  font-size: 1.1rem;
+  color: #1e293b;
+  margin: 0 0 8px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.modal p {
+  color: #64748b;
+  line-height: 1.4;
+  font-size: 0.9rem;
+  margin: 0 0 4px;
+}
+
+.modal strong {
+  color: #1e293b;
+  font-weight: 600;
+}
+
+.modal small {
+  color: #94a3b8;
+  font-size: 0.8rem;
+  display: block;
+  line-height: 1.4;
+}
+
+.modalActions { 
+  display: flex; 
+  gap: 10px; 
+  margin-top: 20px; 
+}
+
+.modalActions button { 
+  flex: 1; 
+  padding: 10px 14px; 
+  border-radius: 8px; 
+  border: none; 
+  font-weight: 600; 
+  cursor: pointer; 
+  font-size: 0.9rem;
+  transition: all 0.2s;
+  min-height: 40px;
+}
+
+.cancelBtn { 
+  background: #f8fafc; 
+  color: #475569; 
+  border: 1px solid #e2e8f0;
+}
+
+.cancelBtn:hover {
+  background: #f1f5f9;
+}
+
+.confirmBtn { 
+  background: #ef4444;
+  color: white; 
+  border: 1px solid #dc2626;
+}
+
+.confirmBtn:hover {
+  background: #dc2626;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modalScale {
+  from { 
+    transform: scale(0.95); 
+    opacity: 0; 
+  }
+  to { 
+    transform: scale(1); 
+    opacity: 1; 
+  }
+}
+
+/* Responsive Breakpoints */
+@media (min-width: 735px) {
+  .adminContainer {
+    padding: 0 24px;
+  }
+  
+  .adminHeader {
+    margin: 30px 0 40px;
+  }
+  
+  .adminHeader h1 { 
+    font-size: 2rem;
+  }
+  
+  .statsBadge {
+    font-size: 0.95rem;
+    padding: 10px 20px;
+  }
+  
+  /* Horizontal layout for forms and lists on desktop */
+  .addFormsRow {
+    flex-direction: row;
+    gap: 30px;
+  }
+  
+  .addFormsRow .adminCard {
+    flex: 1;
+  }
+  
+  .managementListsRow {
+    flex-direction: row;
+    gap: 30px;
+  }
+  
+  .managementListsRow .listCard {
+    flex: 1;
+  }
+  
+  .questionsHeader h2 {
+    font-size: 1.5rem;
+  }
+  
+  .viewAllBtn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+  
+  .adminTable {
+    min-width: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .adminContainer {
+    padding: 0 32px;
+  }
+  
+  .adminHeader h1 { 
+    font-size: 2.25rem;
+  }
+  
+  .adminCard {
+    padding: 24px;
+  }
+  
+  .listCard {
+    padding: 24px;
+  }
+  
+  .itemScrollList {
+    max-height: 300px;
+  }
+  
+  .questionsHeader {
+    padding: 28px;
+  }
+  
+  .searchInput {
+    padding: 16px 50px 16px 24px;
+  }
+  
+  .modal {
+    max-width: 340px;
+    padding: 22px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .adminContainer {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+  
+  .adminHeader {
+    padding: 0 0 20px;
+  }
+}

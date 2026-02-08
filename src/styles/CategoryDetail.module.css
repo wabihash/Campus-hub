@@ -1,0 +1,162 @@
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  min-height: 100vh;
+}
+
+/* Header Section */
+.headerCard {
+  background: white;
+  border-radius: 24px;
+  padding: 40px;
+  border: 1px solid #e2e8f0;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.titleArea h1 {
+  font-size: 32px;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.titleArea p {
+  color: #64748b;
+  font-size: 16px;
+}
+
+.statsBadge {
+  background: #f1f5f9;
+  padding: 12px 24px;
+  border-radius: 16px;
+  text-align: center;
+}
+
+.statsBadge strong {
+  display: block;
+  font-size: 20px;
+  color: #2563eb;
+}
+
+.statsBadge span {
+  font-size: 12px;
+  color: #94a3b8;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+/* Back Button */
+.backBtn {
+  background: none;
+  border: none;
+  color: #64748b;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  transition: color 0.2s;
+}
+
+.backBtn:hover {
+  color: #2563eb;
+}
+
+/* Question Cards */
+.questionList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.qCard {
+  background: white;
+  padding: 24px;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.qCard:hover {
+  transform: translateX(8px);
+  border-color: #2563eb;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.qTitle {
+  font-size: 18px;
+  color: #1e293b;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.qExcerpt {
+  color: #475569;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.qFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.authorInfo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #64748b;
+}
+
+.avatar {
+  width: 24px;
+  height: 24px;
+  background: #cbd5e1;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 10px;
+  color: white;
+}
+
+/* Empty State */
+.empty {
+  text-align: center;
+  padding: 60px;
+  background: #f8fafc;
+  border: 2px dashed #e2e8f0;
+  border-radius: 24px;
+  color: #94a3b8;
+}
+
+.askNowBtn {
+  margin-top: 20px;
+  padding: 10px 24px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .headerCard {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+}
