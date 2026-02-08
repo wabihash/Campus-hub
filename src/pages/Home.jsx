@@ -3,6 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import axiosBase from "../AxiosConfig";
 import { context } from "../context/DataContext"; 
 import styles from "../styles/Home.module.css";
+
 export default function Home() {
   const { token, user } = useContext(context);
   const [questions, setQuestions] = useState([]);
@@ -57,7 +58,7 @@ export default function Home() {
     : filteredQuestions.slice(0, 5);
 
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} container`}>
       {/* Hero */}
       <header className={styles.hero}>
         <div className={styles.heroContent}>
