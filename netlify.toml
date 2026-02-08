@@ -1,0 +1,6 @@
+# This tells Netlify to redirect all traffic to index.html 
+# so React Router can handle the URL.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
