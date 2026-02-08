@@ -16,6 +16,7 @@ export default function NavBar() {
   const [isWiggling, setIsWiggling] = useState(false);
   const prevCountRef = useRef(0);
   const audioRef = useRef(new Audio("/notify.mp3"));
+  // 1. Define the function
   const fetchNotifications = async () => {
     if (!token) return;
     try {
@@ -24,6 +25,7 @@ export default function NavBar() {
       });
       const newNotifs = res.data.notifications || [];
       const newUnreadCount = newNotifs.filter((n) => !n.is_read).length;
+      
       if (newUnreadCount > prevCountRef.current) {
         audioRef.current.play().catch(() => { });
         setIsWiggling(true);
@@ -35,12 +37,14 @@ export default function NavBar() {
     } catch (err) {
       console.error(err);
     }
-   useEffect(() => {
-    fetchNotifications();
-    const interval = setInterval(fetchNotifications, 30000);
+  }; // <--- Close the function here!
+
+  // 2. Move the useEffect to the top level
+  useEffect(() => {
+    fetchNotifications(); // Initial fetch
+    const interval = setInterval(fetchNotifications, 30000); // Poll every 30s
     return () => clearInterval(interval);
   }, [token]);
-  }
   const handleToggleNotif = async () => {
     setShowNotif(!showNotif);
     if (!showNotif && prevCountRef.current > 0) {
