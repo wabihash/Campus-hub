@@ -3,20 +3,25 @@ import { useContext, useState, useEffect, useRef } from "react";
 import { context }from "../context/DataContext"; 
 import axiosBase from "../AxiosConfig";
 import styles from "./NavBar.module.css";
-export default function NavBar() {
-  const { user, setUser, token, setToken, role } = useContext(context);
+
+export default function Navbar() {
+  const { user, setUser, setToken, token, role } = useContext(context);
   const navigate = useNavigate();
   const location = useLocation();
-  const [open, setOpen] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [showConfirm, setShowConfirm] = useState(false);
-  // Notifications state
+
+  // State
+  const [open, setOpen] = useState(false); // Mobile menu
+  const [menuOpen, setMenuOpen] = useState(false); // Avatar dropdown
+  const [showConfirm, setShowConfirm] = useState(false); // Logout confirmation modal
+
+  // Notifications
   const [notifications, setNotifications] = useState([]);
   const [showNotif, setShowNotif] = useState(false);
   const [isWiggling, setIsWiggling] = useState(false);
   const prevCountRef = useRef(0);
   const audioRef = useRef(new Audio("/notify.mp3"));
-  // 1. Define the function
+
+  // Fetch notifications
   const fetchNotifications = async () => {
     if (!token) return;
     try {
@@ -25,9 +30,9 @@ export default function NavBar() {
       });
       const newNotifs = res.data.notifications || [];
       const newUnreadCount = newNotifs.filter((n) => !n.is_read).length;
-      
+
       if (newUnreadCount > prevCountRef.current) {
-        audioRef.current.play().catch(() => { });
+        audioRef.current.play().catch(() => {});
         setIsWiggling(true);
         setTimeout(() => setIsWiggling(false), 600);
       }
@@ -37,14 +42,14 @@ export default function NavBar() {
     } catch (err) {
       console.error(err);
     }
-  }; // <--- Close the function here!
+  };
 
-  // 2. Move the useEffect to the top level
   useEffect(() => {
-    fetchNotifications(); // Initial fetch
-    const interval = setInterval(fetchNotifications, 30000); // Poll every 30s
+    fetchNotifications();
+    const interval = setInterval(fetchNotifications, 30000);
     return () => clearInterval(interval);
   }, [token]);
+
   const handleToggleNotif = async () => {
     setShowNotif(!showNotif);
     if (!showNotif && prevCountRef.current > 0) {
@@ -62,7 +67,9 @@ export default function NavBar() {
         console.error(err);
       }
     }
-  }
+  };
+
+  // Clear All Notifications
   const handleClearAllNotifications = async (e) => {
     e.stopPropagation();
     try {
@@ -75,7 +82,9 @@ export default function NavBar() {
       console.error("Error clearing notifications:", err);
     }
   };
-   const handleMarkAsReadAndNavigate = async (n) => {
+
+  // Mark single notification as read AND Navigate
+  const handleMarkAsReadAndNavigate = async (n) => {
     try {
       // If it's unread, tell the backend
       if (!n.is_read) {
@@ -94,8 +103,11 @@ export default function NavBar() {
       console.error(err);
     }
   };
+
+  // Close dropdowns when clicking outside
   const dropdownRef = useRef(null);
   const notifRef = useRef(null);
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -105,21 +117,31 @@ export default function NavBar() {
         setShowNotif(false);
       }
     };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    }
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
-  const handleBackdropClick = ()=> {
+
+  // Close all dropdowns when clicking on backdrop
+  const handleBackdropClick = () => {
     setMenuOpen(false);
     setShowNotif(false);
-  }
+  };
+
+  // Logout
   const handleLogout = () => {
-     setUser(null);
+    setUser(null);
     setToken(null);
     localStorage.clear();
     navigate("/login");
-  }
+  };
+
+  // Close menus on route change
+  useEffect(() => {
+    setOpen(false);
+    setMenuOpen(false);
+    setShowNotif(false);
+  }, [location.pathname]);
 
   return (
     <>
