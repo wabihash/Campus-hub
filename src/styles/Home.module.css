@@ -1,7 +1,12 @@
+/* --- Global Container Fixes --- */
 .container {
   max-width: 1100px;
   margin: 0 auto;
   padding: 16px;
+  /* UPDATED: Stops the horizontal slide */
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden; 
 }
 
 @media (min-width: 640px) {
@@ -16,7 +21,7 @@
   }
 }
 
-/* Hero Section */
+/* --- Hero Section --- */
 .hero {
   background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
   border-radius: 16px;
@@ -76,21 +81,24 @@
   }
 }
 
-/* Layout */
+/* --- Layout --- */
 .layout {
   display: grid;
   grid-template-columns: 1fr;
   gap: 24px;
+  /* UPDATED: Ensures grid doesn't expand past container */
+  width: 100%;
 }
 
 @media (min-width: 900px) {
   .layout {
-    grid-template-columns: 1fr 280px;
+    /* UPDATED: minmax(0, 1fr) prevents content from pushing the column wide */
+    grid-template-columns: minmax(0, 1fr) 280px;
     gap: 30px;
   }
 }
 
-/* Question Cards */
+/* --- Question Cards --- */
 .card {
   background: white;
   border: 1px solid #e2e8f0;
@@ -99,6 +107,12 @@
   margin-bottom: 16px;
   cursor: pointer;
   transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  
+  /* UPDATED: Forces card to stay inside the grid */
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden; 
+  word-wrap: break-word;
 }
 
 @media (min-width: 640px) {
@@ -119,6 +133,9 @@
   color: #1e293b;
   margin-bottom: 8px;
   line-height: 1.35;
+  /* UPDATED: Prevents long titles from stretching the screen */
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 @media (min-width: 640px) {
@@ -131,6 +148,9 @@
   color: #475569;
   font-size: 0.92rem;
   line-height: 1.5;
+  /* UPDATED: Prevents long descriptions from stretching the screen */
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 @media (min-width: 640px) {
@@ -139,7 +159,7 @@
   }
 }
 
-/* Meta & Tags */
+/* --- Meta & Tags --- */
 .tags {
   display: flex;
   flex-wrap: wrap;
@@ -173,6 +193,9 @@
   border-top: 1px solid #f1f5f9;
   font-size: 0.8rem;
   color: #64748b;
+  /* UPDATED: Ensures footer doesn't break on tiny screens */
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .userSection {
@@ -192,6 +215,7 @@
   justify-content: center;
   font-size: 0.9rem;
   font-weight: 600;
+  flex-shrink: 0; /* Prevents avatar from squishing */
 }
 
 @media (min-width: 640px) {
@@ -201,7 +225,7 @@
   }
 }
 
-/* Skeleton Loading Animation */
+/* --- Skeleton Loading Animation --- */
 .skeletonCard {
   background: #fff;
   border: 1px solid #e2e8f0;
@@ -257,15 +281,11 @@
 }
 
 @keyframes loading {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(100%);
-  }
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
 }
 
-/* Sidebar */
+/* --- Sidebar --- */
 .actionBlock {
   background: #f8fafc;
   border: 1px solid #2563eb;
@@ -310,7 +330,7 @@
   color: #2563eb;
 }
 
-/* Empty State */
+/* --- Empty State --- */
 .emptyCard {
   display: flex;
   flex-direction: column;

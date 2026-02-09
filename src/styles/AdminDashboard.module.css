@@ -5,6 +5,8 @@
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   min-height: 100vh;
   box-sizing: border-box;
+  /* UPDATED: Added overflow control for the main page level */
+  overflow-x: hidden;
 }
 
 /* Toast Notification */
@@ -26,7 +28,6 @@
   max-width: 400px;
   margin: 0 auto;
 }
-   
 
 .success { 
   background: linear-gradient(135deg, #10b981 0%, #059669 100%);
@@ -53,9 +54,9 @@
 .headerTop {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center; 
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 20px;
 }
 
 .headerLeft {
@@ -130,6 +131,7 @@
   border: 1px solid #e2e8f0;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
   transition: transform 0.2s, box-shadow 0.2s;
+  overflow: hidden; /* Prevent form overflow */
 }
 
 .adminCard:hover {
@@ -194,6 +196,7 @@
   border: 1px solid #e2e8f0;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
   width: 100%;
+  box-sizing: border-box;
 }
 
 .cardHeader {
@@ -241,6 +244,7 @@
   margin-bottom: 6px;
   background: #f8fafc;
   transition: background 0.2s;
+  gap: 10px;
 }
 
 .listItem:hover {
@@ -255,7 +259,6 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  margin-right: 10px;
 }
 
 .listItem input {
@@ -422,20 +425,28 @@
   pointer-events: none;
 }
 
-/* Table Design */
+/* --- UPDATED Table Design for TiDB --- */
 .tableWrapper {
   background: white;
   border-radius: 0 0 16px 16px;
   border: 1px solid #e2e8f0;
-  overflow-x: auto;
+  overflow-x: auto; /* Keeps scroll inside wrapper */
   width: 100%;
+  -webkit-overflow-scrolling: touch;
 }
 
 .adminTable {
   width: 100%;
   border-collapse: collapse;
-  min-width: 600px;
+  min-width: 800px; /* Ensure table has room for columns */
+  table-layout: fixed; /* Crucial for controlling column widths */
 }
+
+/* Setting specific column widths to prevent data stretching */
+.adminTable th:nth-child(1) { width: 180px; } /* Author */
+.adminTable th:nth-child(2) { width: auto; }  /* Question (Flexible) */
+.adminTable th:nth-child(3) { width: 120px; } /* Date */
+.adminTable th:nth-child(4) { width: 120px; } /* Action */
 
 .adminTable th { 
   background: #f8fafc; 
@@ -454,6 +465,10 @@
   color: #475569;
   font-size: 0.9rem;
   vertical-align: middle;
+  /* UPDATED: Forces long text to wrap instead of expanding the cell */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .adminTable tr:last-child td {
@@ -471,7 +486,13 @@
   font-weight: 600; 
   color: #1e293b;
   cursor: pointer;
-  min-width: 150px;
+  overflow: hidden;
+}
+
+.userCell span {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .avatar { 
@@ -489,12 +510,14 @@
 }
 
 .titleCell { 
-  color: #1e293b; 
+  color: #3b82f6; 
   font-weight: 500;
   cursor: pointer;
-  color: #3b82f6;
   transition: color 0.2s;
-  min-width: 200px;
+  /* UPDATED: Ensures titles can wrap to multiple lines if they are long */
+  display: block;
+  width: 100%;
+  line-height: 1.4;
 }
 
 .titleCell:hover {
@@ -726,7 +749,40 @@
   }
 }
 
-/* Responsive Breakpoints */
+/* --- Responsive Breakpoints --- */
+
+/* Range 330px - 500px stack fix */
+@media (max-width: 600px) {
+  .headerTop {
+    flex-direction: column; 
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+  }
+
+  .headerLeft {
+    width: 100%;
+  }
+
+  .statsContainer {
+    justify-content: center; 
+    width: 100%;
+    margin-top: 5px;
+  }
+
+  .statsBadge {
+    flex: 1; 
+    min-width: 80px;
+    padding: 8px 12px;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+
+  .adminHeader h1 {
+    font-size: 1.5rem;
+  }
+}
+
 @media (min-width: 735px) {
   .adminContainer {
     padding: 0 24px;
@@ -774,7 +830,7 @@
   }
   
   .adminTable {
-    min-width: 0;
+    min-width: 0; /* Reset min-width for larger desktop */
   }
 }
 
