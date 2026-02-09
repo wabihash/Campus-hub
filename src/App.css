@@ -4,3 +4,48 @@
 	box-sizing: border-box;
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+:root{
+	--bg: #f6f7fb;
+	--surface: #ffffff;
+	--text: #0f1724;
+	--muted: #6b7280;
+	--primary: #4f46e5;
+	--accent: #7c3aed;
+	--navbar-start: #667eea;
+	--navbar-end: #764ba2;
+	--surface-hover: #f3f4f6;
+	--divider: rgba(0,0,0,0.06);
+	--card-shadow: 0 8px 30px rgba(15,23,36,0.08);
+}
+
+.dark-theme{
+	--bg: #071024;
+	--surface: #0b1220;
+	--text: #e6eef8;
+	--muted: #94a3b8;
+	--primary: #8b5cf6;
+	--accent: #a78bfa;
+	--navbar-start: #0f1724;
+	--navbar-end: #111827;
+	--surface-hover: #0f1724;
+	--divider: rgba(255,255,255,0.04);
+	--card-shadow: 0 8px 30px rgba(2,6,23,0.6);
+}
+
+body{
+	background: var(--bg);
+	color: var(--text);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* Use CSS variables in common UI elements */
+.card, .menu, .notifDropdown {
+	background: var(--surface);
+	box-shadow: var(--card-shadow);
+	color: var(--text);
+}
+
+a { color: inherit; }
+

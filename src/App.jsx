@@ -14,6 +14,7 @@ import MyQuestions from './pages/MyQuestions';
 import CategoryDetail from './pages/CategoryDetail';
 import AdminDashboard from './pages/AdminDashboard';
 import './App.css'
+import Footer from './components/Footer'
 function App() {
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(null);
@@ -79,6 +80,7 @@ function App() {
           />
         </Route>
       </Routes>
+      <Footer />
     </context.Provider>
   )
 }

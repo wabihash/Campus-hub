@@ -1,11 +1,13 @@
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useContext, useState, useEffect, useRef } from "react";
 import { context }from "../context/DataContext"; 
+import { ThemeContext } from "../context/ThemeContext";
 import axiosBase from "../AxiosConfig";
 import styles from "./NavBar.module.css";
 
 export default function Navbar() {
   const { user, setUser, setToken, token, role } = useContext(context);
+  const { theme, toggleTheme } = useContext(ThemeContext);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -170,6 +172,18 @@ export default function Navbar() {
           )}
 
           {/* Notification Bell */}
+          {/* Theme Toggle (non-intrusive) */}
+          <div className={styles.themeToggle} title={theme === 'dark' ? 'Switch to light' : 'Switch to dark'}>
+            <label className={styles.switch}>
+              <input
+                type="checkbox"
+                checked={theme === 'dark'}
+                onChange={toggleTheme}
+                aria-label="Toggle dark mode"
+              />
+              <span className={styles.slider} />
+            </label>
+          </div>
           <div className={styles.notifWrapper} ref={notifRef}>
             <div
               className={`${styles.bell} ${isWiggling ? styles.animateBell : ""}`}
