@@ -432,6 +432,7 @@
   border: 1px solid #e2e8f0;
   overflow-x: auto; /* Keeps scroll inside wrapper */
   width: 100%;
+
   -webkit-overflow-scrolling: touch;
 }
 
