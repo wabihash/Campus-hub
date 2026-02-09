@@ -4,10 +4,3 @@
 	box-sizing: border-box;
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
-/* Global container used as fallback for pages expecting a global class */
-.container {
-	max-width: 1100px;
-	margin: 0 auto;
-	padding: 16px;
-}
