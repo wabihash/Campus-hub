@@ -23,7 +23,7 @@
 
 /* --- Hero Section --- */
 .hero {
-  background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+  background: linear-gradient(135deg, var(--primary) 0%, #1e40af 100%);
   border-radius: 16px;
   color: white;
   padding: 40px 16px;
@@ -100,8 +100,8 @@
 
 /* --- Question Cards --- */
 .card {
-  background: white;
-  border: 1px solid #e2e8f0;
+  background: var(--surface);
+  border: 1px solid var(--divider);
   border-radius: 16px;
   padding: 20px;
   margin-bottom: 16px;
@@ -123,14 +123,14 @@
 }
 
 .card:hover {
-  border-color: #2563eb;
+  border-color: var(--primary);
   transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--card-shadow);
 }
 
 .qTitle {
   font-size: 1.15rem;
-  color: #1e293b;
+  color: var(--text);
   margin-bottom: 8px;
   line-height: 1.35;
   /* UPDATED: Prevents long titles from stretching the screen */
@@ -145,7 +145,7 @@
 }
 
 .qDesc {
-  color: #475569;
+  color: var(--muted);
   font-size: 0.92rem;
   line-height: 1.5;
   /* UPDATED: Prevents long descriptions from stretching the screen */
@@ -176,12 +176,12 @@
 }
 
 .campusTag {
-  background: #eff6ff;
-  color: #2563eb;
+  background: var(--surface-hover);
+  color: var(--primary);
 }
 
 .deptTag {
-  background: #ecfdf5;
+  background: rgba(16,185,129,0.06);
   color: #10b981;
 }
 
@@ -190,9 +190,9 @@
   justify-content: space-between;
   align-items: center;
   padding-top: 12px;
-  border-top: 1px solid #f1f5f9;
+  border-top: 1px solid var(--surface-hover);
   font-size: 0.8rem;
-  color: #64748b;
+  color: var(--muted);
   /* UPDATED: Ensures footer doesn't break on tiny screens */
   flex-wrap: wrap;
   gap: 10px;
@@ -207,7 +207,7 @@
 .avatar {
   width: 28px;
   height: 28px;
-  background: #3b82f6;
+  background: var(--primary);
   color: white;
   border-radius: 50%;
   display: flex;
@@ -227,8 +227,8 @@
 
 /* --- Skeleton Loading Animation --- */
 .skeletonCard {
-  background: #fff;
-  border: 1px solid #e2e8f0;
+  background: var(--surface);
+  border: 1px solid var(--divider);
   border-radius: 16px;
   padding: 20px;
   margin-bottom: 16px;
@@ -246,7 +246,7 @@
 .skeletonTitle,
 .skeletonText,
 .skeletonFooter {
-  background: #f1f5f9;
+  background: var(--surface-hover);
   border-radius: 6px;
   margin-bottom: 10px;
   position: relative;
@@ -287,8 +287,8 @@
 
 /* --- Sidebar --- */
 .actionBlock {
-  background: #f8fafc;
-  border: 1px solid #2563eb;
+  background: var(--surface-hover);
+  border: 1px solid var(--primary);
   padding: 20px;
   border-radius: 16px;
   margin-bottom: 20px;
@@ -298,8 +298,8 @@
 .sidebarBtn {
   width: 100%;
   padding: 12px;
-  background: #2563eb;
-  color: white;
+  background: var(--primary);
+  color: #fff;
   border: none;
   border-radius: 10px;
   cursor: pointer;
@@ -309,25 +309,25 @@
 }
 
 .sidebarBtn:hover {
-  background: #1d4ed8;
+  background: rgba(79,70,229,0.9);
 }
 
 .navBlock {
   padding: 20px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--divider);
   border-radius: 16px;
 }
 
 .sideLink {
   display: block;
   padding: 10px 0;
-  color: #475569;
+  color: var(--muted);
   text-decoration: none;
   font-size: 0.95rem;
 }
 
 .sideLink:hover {
-  color: #2563eb;
+  color: var(--primary);
 }
 
 /* --- Empty State --- */
@@ -338,8 +338,8 @@
   justify-content: center;
   padding: 50px 16px;
   text-align: center;
-  background: #ffffff;
-  border: 2px dashed #e2e8f0;
+  background: var(--surface);
+  border: 2px dashed var(--divider);
   border-radius: 20px;
   margin: 32px auto;
   max-width: 100%;
@@ -356,25 +356,25 @@
 .emptyIcon {
   font-size: 48px;
   margin-bottom: 20px;
-  background: #f1f5f9;
+  background: var(--surface-hover);
   width: 80px;
   height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
 }
 
 .emptyCard h3 {
   font-size: 1.4rem;
-  color: #1e293b;
+  color: var(--text);
   margin-bottom: 8px;
   font-weight: 700;
 }
 
 .emptyCard p {
-  color: #64748b;
+  color: var(--muted);
   max-width: 340px;
   margin-bottom: 24px;
   line-height: 1.55;
@@ -383,8 +383,8 @@
 
 .postBtn,
 .seeMoreBtn {
-  background: #2563eb;
-  color: white;
+  background: var(--primary);
+  color: #fff;
   padding: 12px 28px;
   border-radius: 10px;
   border: none;
@@ -394,11 +394,7 @@
   transition: all 0.22s;
 }
 
-.postBtn:hover,
-.seeMoreBtn:hover {
-  background: #1d4ed8;
-  transform: translateY(-2px);
-}
+.postBtn:hover, .seeMoreBtn:hover { background: rgba(79,70,229,0.9); transform: translateY(-2px); }
 
 .seeMoreBtn {
   display: block;

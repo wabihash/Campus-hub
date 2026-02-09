@@ -10,12 +10,12 @@
 
 .heading {
   font-size: 28px;
-  color: #0f172a;
+  color: var(--text);
   margin-bottom: 8px;
 }
 
 .subHeading {
-  color: #64748b;
+  color: var(--muted);
   font-size: 16px;
 }
 
@@ -26,8 +26,8 @@
 }
 
 .card {
-  background: white;
-  border: 1px solid #e2e8f0;
+  background: var(--surface);
+  border: 1px solid var(--divider);
   border-radius: 20px;
   overflow: hidden;
   display: flex;
@@ -38,8 +38,8 @@
 
 .card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-  border-color: #2563eb;
+  box-shadow: var(--card-shadow);
+  border-color: var(--primary);
 }
 
 .cardContent {
@@ -50,7 +50,7 @@
 .iconBadge {
   width: 40px;
   height: 40px;
-  background: #eff6ff;
+  background: var(--surface-hover);
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -61,27 +61,27 @@
 
 .card h3 {
   font-size: 18px;
-  color: #1e293b;
+  color: var(--text);
   margin-bottom: 10px;
 }
 
 .card p {
   font-size: 14px;
-  color: #64748b;
+  color: var(--muted);
   line-height: 1.5;
 }
 
 .cardFooter {
   padding: 16px 24px;
-  background: #f8fafc;
-  border-top: 1px solid #f1f5f9;
+  background: var(--surface-hover);
+  border-top: 1px solid var(--surface-hover);
   font-size: 13px;
   font-weight: 700;
-  color: #2563eb;
+  color: var(--primary);
 }
 
 .empty {
   text-align: center;
   padding: 40px;
-  color: #94a3b8;
+  color: var(--muted-2);
 }

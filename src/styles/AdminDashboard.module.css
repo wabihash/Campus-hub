@@ -21,7 +21,7 @@
   font-weight: 600;
   z-index: 2000;
   animation: slideInDown 0.3s ease-out;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--card-shadow);
   display: flex;
   align-items: center;
   gap: 10px;
@@ -30,13 +30,13 @@
 }
 
 .success { 
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-  border-left: 4px solid #047857;
+  background: linear-gradient(135deg, var(--success) 0%, #059669 100%);
+  border-left: 4px solid rgba(4,120,87,0.9);
 }
 
 .error { 
-  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
-  border-left: 4px solid #b91c1c;
+  background: linear-gradient(135deg, var(--danger) 0%, #dc2626 100%);
+  border-left: 4px solid rgba(185,28,28,0.9);
 }
 
 @keyframes slideInDown {
@@ -48,7 +48,7 @@
 .adminHeader {
   margin: 20px 0 30px;
   padding-bottom: 20px;
-  border-bottom: 1px solid #e2e8f0;
+  border-bottom: 1px solid var(--divider);
 }
 
 .headerTop {
@@ -66,9 +66,9 @@
 
 .adminHeader h1 { 
   font-size: 1.75rem; 
-  color: #0f172a;
+  color: var(--text);
   font-weight: 800;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, var(--navbar-start) 0%, var(--navbar-end) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -86,7 +86,7 @@
 }
 
 .statsBadge {
-  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  background: linear-gradient(135deg, var(--primary) 0%, #1d4ed8 100%);
   padding: 10px 18px;
   border-radius: 12px;
   font-weight: 600;
@@ -125,11 +125,11 @@
 
 /* Admin Card Styles */
 .adminCard {
-  background: white;
+  background: var(--surface);
   padding: 20px;
   border-radius: 16px;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--divider);
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.04);
   transition: transform 0.2s, box-shadow 0.2s;
   overflow: hidden; /* Prevent form overflow */
 }
@@ -142,7 +142,7 @@
 .adminCard h3 {
   margin: 0 0 16px;
   font-size: 1.1rem;
-  color: #1e293b;
+  color: var(--text);
   font-weight: 700;
 }
 
@@ -154,24 +154,24 @@
 
 .adminForm input {
   padding: 12px 16px;
-  border: 2px solid #e2e8f0;
+  border: 2px solid var(--divider);
   border-radius: 10px;
   font-size: 0.95rem;
   transition: all 0.2s;
-  background: #f8fafc;
+  background: var(--surface-hover);
   width: 100%;
   box-sizing: border-box;
 }
 
 .adminForm input:focus { 
-  border-color: #3b82f6; 
-  background: white;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  border-color: var(--primary); 
+  background: var(--surface);
+  box-shadow: 0 0 0 3px rgba(79,70,229,0.08);
   outline: none;
 }
 
 .addBtn {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, var(--navbar-start) 0%, var(--navbar-end) 100%);
   color: white;
   padding: 12px;
   border-radius: 10px;
@@ -190,10 +190,10 @@
 
 /* List Card Styles */
 .listCard {
-  background: white;
+  background: var(--surface);
   padding: 20px;
   border-radius: 16px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--divider);
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
   width: 100%;
   box-sizing: border-box;
@@ -208,7 +208,7 @@
 
 .cardHeader h3 {
   font-size: 1.1rem;
-  color: #1e293b;
+  color: var(--text);
   font-weight: 700;
   display: flex;
   align-items: center;
@@ -217,12 +217,12 @@
 }
 
 .count {
-  background: #f1f5f9;
+  background: var(--surface-hover);
   padding: 4px 10px;
   border-radius: 20px;
   font-size: 0.8rem;
   font-weight: 600;
-  color: #475569;
+  color: var(--muted);
   min-width: 30px;
   text-align: center;
 }
@@ -231,7 +231,7 @@
   max-height: 250px;
   overflow-y: auto;
   border-radius: 8px;
-  border: 1px solid #f1f5f9;
+  border: 1px solid var(--surface-hover);
   padding: 8px;
 }
 
@@ -242,18 +242,18 @@
   padding: 12px;
   border-radius: 8px;
   margin-bottom: 6px;
-  background: #f8fafc;
+  background: var(--surface-hover);
   transition: background 0.2s;
   gap: 10px;
 }
 
 .listItem:hover {
-  background: #f1f5f9;
+  background: var(--surface);
 }
 
 .listItem span { 
   font-size: 0.95rem; 
-  color: #334155;
+  color: var(--text);
   font-weight: 500;
   flex: 1;
   overflow: hidden;
@@ -264,10 +264,10 @@
 .listItem input {
   width: 100%;
   padding: 8px 12px;
-  border: 2px solid #3b82f6;
+  border: 2px solid var(--primary);
   border-radius: 6px;
   font-size: 0.95rem;
-  background: white;
+  background: var(--surface);
   box-sizing: border-box;
 }
 
@@ -290,8 +290,8 @@
 }
 
 .editBtn {
-  color: #3b82f6;
-  background: rgba(59, 130, 246, 0.1);
+  color: var(--primary);
+  background: rgba(79,70,229,0.08);
 }
 
 .editBtn:hover {
@@ -299,8 +299,8 @@
 }
 
 .deleteBtnSmall {
-  color: #ef4444;
-  background: rgba(239, 68, 68, 0.1);
+  color: var(--danger);
+  background: rgba(239,68,68,0.08);
 }
 
 .deleteBtnSmall:hover {
@@ -313,10 +313,10 @@
 }
 
 .questionsHeader {
-  background: white;
+  background: var(--surface);
   padding: 24px;
   border-radius: 16px 16px 0 0;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--divider);
   border-bottom: none;
 }
 
@@ -331,7 +331,7 @@
 
 .questionsHeader h2 {
   font-size: 1.25rem;
-  color: #1e293b;
+  color: var(--text);
   font-weight: 700;
   display: flex;
   align-items: center;
@@ -347,7 +347,7 @@
 }
 
 .viewAllBtn {
-  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  background: linear-gradient(135deg, var(--primary) 0%, #1d4ed8 100%);
   color: white;
   padding: 8px 18px;
   border-radius: 8px;
@@ -369,12 +369,12 @@
 }
 
 .questionsCount {
-  background: #f1f5f9;
+  background: var(--surface-hover);
   padding: 6px 12px;
   border-radius: 20px;
   font-size: 0.85rem;
   font-weight: 600;
-  color: #475569;
+  color: var(--muted);
 }
 
 /* Search Section */
@@ -388,7 +388,7 @@
   align-items: center;
   gap: 8px;
   margin-bottom: 12px;
-  color: #64748b;
+  color: var(--muted);
   font-weight: 600;
   font-size: 1rem;
 }

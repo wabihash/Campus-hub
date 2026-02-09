@@ -10,14 +10,14 @@
   text-align: center;
   padding: 80px;
   font-size: 18px;
-  color: #64748b;
+  color: var(--muted);
 }
 
 /* ================== BACK ================== */
 .backBtn {
   background: none;
   border: none;
-  color: #2563eb;
+  color: var(--primary);
   font-weight: 600;
   cursor: pointer;
   margin-bottom: 20px;
@@ -25,10 +25,10 @@
 
 /* ================== QUESTION ================== */
 .questionSection {
-  background: #ffffff;
+  background: var(--surface);
   border-radius: 16px;
   padding: 28px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--divider);
   margin-bottom: 30px;
   /* FIX ADDED HERE */
   min-width: 0;
@@ -37,7 +37,7 @@
 .title {
   font-size: 28px;
   margin-bottom: 12px;
-  color: #0f172a;
+  color: var(--text);
   /* FIX ADDED HERE */
   word-wrap: break-word;
   overflow-wrap: break-word;
@@ -48,7 +48,7 @@
   align-items: center;
   gap: 12px;
   font-size: 13px;
-  color: #64748b;
+  color: var(--muted);
   margin-bottom: 14px;
 }
 
@@ -62,7 +62,7 @@
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: #2563eb;
+  background: var(--primary);
   color: white;
   font-weight: bold;
   display: flex;
@@ -79,10 +79,10 @@
 
 /* ================== ANSWER BOX ================== */
 .replyBox {
-  background: #f8fafc;
+  background: var(--surface);
   border-radius: 16px;
   padding: 24px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--divider);
   margin-bottom: 30px;
 }
 
@@ -91,7 +91,7 @@
   min-height: 120px;
   padding: 14px;
   border-radius: 10px;
-  border: 1px solid #cbd5f5;
+  border: 1px solid var(--divider);
   resize: vertical;
   margin-bottom: 12px;
   /* FIX ADDED HERE */
@@ -99,8 +99,8 @@
 }
 
 .submitBtn {
-  background: #2563eb;
-  color: white;
+  background: var(--primary);
+  color: #fff;
   border: none;
   padding: 10px 22px;
   border-radius: 8px;
@@ -111,22 +111,22 @@
 .errorMsg {
   display: block;
   margin-top: 10px;
-  color: #dc2626;
+  color: var(--danger);
   font-weight: 600;
 }
 
 .successMsg {
   display: block;
   margin-top: 10px;
-  color: #16a34a;
+  color: var(--success);
   font-weight: 600;
 }
 
 /* ================== ANSWERS & VOTING ================== */
 .answerCard {
-  background: #ffffff;
+  background: var(--surface);
   border-radius: 16px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--divider);
   padding: 22px;
   margin-bottom: 18px;
   display: flex; 
@@ -142,9 +142,9 @@
 }
 
 .voteBtn {
-  background: #f1f5f9;
-  border: 1px solid #e2e8f0;
-  color: #64748b;
+  background: var(--surface-hover);
+  border: 1px solid var(--divider);
+  color: var(--muted);
   width: 32px;
   height: 32px;
   border-radius: 8px;
@@ -156,20 +156,20 @@
 }
 
 .voteBtn:hover {
-  background: #e2e8f0;
-  color: #2563eb;
+  background: var(--surface-hover);
+  color: var(--primary);
 }
 
 .voted {
-  background: #2563eb !important;
+  background: var(--primary) !important;
   color: white !important;
-  border-color: #2563eb;
+  border-color: var(--primary);
 }
 
 .voteCount {
   font-weight: 700;
   font-size: 14px;
-  color: #334155;
+  color: var(--text);
 }
 
 .answerMain {
@@ -189,7 +189,7 @@
   width: 26px;
   height: 26px;
   border-radius: 50%;
-  background: #64748b;
+  background: var(--muted-2);
   color: white;
   font-size: 12px;
   font-weight: bold;
@@ -201,7 +201,7 @@
 .time {
   margin-left: auto;
   font-size: 12px;
-  color: #94a3b8;
+  color: var(--muted-2);
 }
 
 /* ADDED TO ENSURE ANSWERS WRAP */
@@ -218,18 +218,18 @@
 }
 
 .editBtn {
-  background: #e0f2fe;
+  background: rgba(99,102,241,0.08);
   border: none;
-  color: #0369a1;
+  color: var(--primary);
   padding: 6px 12px;
   border-radius: 6px;
   cursor: pointer;
 }
 
 .deleteBtn {
-  background: #fee2e2;
+  background: var(--danger-bg);
   border: none;
-  color: #b91c1c;
+  color: var(--danger);
   padding: 6px 12px;
   border-radius: 6px;
   cursor: pointer;
@@ -245,7 +245,7 @@
   min-height: 90px;
   padding: 12px;
   border-radius: 8px;
-  border: 1px solid #cbd5f5;
+  border: 1px solid var(--divider);
   /* FIX ADDED HERE */
   box-sizing: border-box;
 }
@@ -257,8 +257,8 @@
 }
 
 .saveBtn {
-  background: #16a34a;
-  color: white;
+  background: var(--success);
+  color: #fff;
   border: none;
   padding: 8px 16px;
   border-radius: 8px;
@@ -276,7 +276,7 @@
 }
 
 .modal {
-  background: white;
+  background: var(--surface);
   padding: 25px;
   border-radius: 12px;
   width: 320px;
@@ -291,7 +291,7 @@
 }
 
 .cancelBtn {
-  background: #e5e7eb;
+  background: var(--surface-hover);
   border: none;
   padding: 8px 16px;
   border-radius: 8px;
@@ -299,7 +299,7 @@
 }
 
 .confirmBtn {
-  background: #ef4444;
+  background: var(--danger);
   color: white;
   border: none;
   padding: 8px 18px;
@@ -307,3 +307,46 @@
   font-weight: 600;
   cursor: pointer;
 }
+/* ================== MOBILE FIXES (<500px) ================== */
+@media (max-width: 500px) {
+  .answerHeader {
+    flex-direction: column; /* Stack avatar, username, time, buttons */
+    align-items: flex-start; /* Align to left */
+    gap: 6px;
+  }
+
+  .time {
+    margin-left: 0; /* Remove auto spacing on small screens */
+  }
+
+  .actionBtns {
+    flex-direction: column; /* Stack Edit/Delete vertically */
+    margin-left: 0; /* Remove left margin */
+    gap: 6px; /* Space between buttons */
+    width: 100%; /* Optional: make buttons full width */
+  }
+
+  .editBtn,
+  .deleteBtn {
+    width: 100%; /* Make buttons full width on mobile */
+    text-align: center;
+  }
+
+  .answerContent {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .smallAvatar {
+    width: 24px;
+    height: 24px;
+    font-size: 11px;
+  }
+
+  .answerMain {
+    min-width: 0;
+    width: 100%;
+  }
+}
+
+
