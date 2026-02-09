@@ -30,12 +30,17 @@
   padding: 28px;
   border: 1px solid #e2e8f0;
   margin-bottom: 30px;
+  /* FIX ADDED HERE */
+  min-width: 0;
 }
 
 .title {
   font-size: 28px;
   margin-bottom: 12px;
   color: #0f172a;
+  /* FIX ADDED HERE */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .meta {
@@ -65,6 +70,13 @@
   justify-content: center;
 }
 
+/* ADDED TO ENSURE DESCRIPTION WRAPS */
+.description {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  line-height: 1.6;
+}
+
 /* ================== ANSWER BOX ================== */
 .replyBox {
   background: #f8fafc;
@@ -82,6 +94,8 @@
   border: 1px solid #cbd5f5;
   resize: vertical;
   margin-bottom: 12px;
+  /* FIX ADDED HERE */
+  box-sizing: border-box;
 }
 
 .submitBtn {
@@ -115,7 +129,7 @@
   border: 1px solid #e2e8f0;
   padding: 22px;
   margin-bottom: 18px;
-  display: flex; /* Added to align vote bar and content */
+  display: flex; 
   gap: 20px;
 }
 
@@ -159,7 +173,9 @@
 }
 
 .answerMain {
-  flex: 1; /* Ensures content takes up remaining space */
+  flex: 1; 
+  /* FIX ADDED HERE */
+  min-width: 0;
 }
 
 .answerHeader {
@@ -186,6 +202,12 @@
   margin-left: auto;
   font-size: 12px;
   color: #94a3b8;
+}
+
+/* ADDED TO ENSURE ANSWERS WRAP */
+.answerContent {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 /* ================== ACTIONS ================== */
@@ -224,6 +246,8 @@
   padding: 12px;
   border-radius: 8px;
   border: 1px solid #cbd5f5;
+  /* FIX ADDED HERE */
+  box-sizing: border-box;
 }
 
 .editActions {

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import axiosBase from "../AxiosConfig";
 import { context } from "../context/DataContext"; 
 import styles from "../styles/MyQuestions.module.css";
+
 export default function MyQuestions() {
   const { token } = useContext(context);
   const [questions, setQuestions] = useState([]);
@@ -132,7 +133,6 @@ export default function MyQuestions() {
                       : q.description}
                   </p>
                   <div className={styles.qMeta}>
-                    {/* Updated this span to be a Link */}
                     <Link to={`/question/${q.id}`} className={styles.ansLink}>
                       <span>💬 {q.answer_count || 0} answers</span>
                     </Link>

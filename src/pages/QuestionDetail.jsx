@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import axiosBase from "../AxiosConfig";
 import { context } from "../context/DataContext"; 
 import styles from "../styles/QuestionDetail.module.css";
+
 export default function QuestionDetail() {
   const { token, user } = useContext(context);
   const { id } = useParams();
