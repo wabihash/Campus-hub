@@ -74,8 +74,8 @@ export default function AskQuestion() {
         <h3>Steps to write a good question</h3>
         <ul>
           <li>Summarize your problem in a one-line title.</li>
-          <li>Describe your problem in more detail (keep it 3-4 lines).</li>
-          <li>Select the correct Campus and Department to reach the right people.</li>
+          <li>Describe your problem in more detail (keep it 1-2 lines).</li>
+          <li>Select the correct Campus locations and Department to reach the right people.</li>
           <li>Review your question and post it to the community.</li>
         </ul>
       </div>

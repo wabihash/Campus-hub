@@ -27,7 +27,7 @@ export default function Campus() {
     <div className={styles.container}>
       <header className={styles.header}>
         <h2 className={styles.heading}>🏫 Campus Locations</h2>
-        <p className={styles.subHeading}>Select a campus to see localized discussions and help requests.</p>
+        <p className={styles.subHeading}>Select a campus locations to see localized discussions and help requests.</p>
       </header>
 
       <div className={styles.grid}>
