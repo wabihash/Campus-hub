@@ -64,6 +64,20 @@
   text-decoration: underline;
 }
 
+/* Small forgot password link (non-disruptive) */
+.forgotRow{
+  margin:8px 0 0;
+  text-align:right;
+  width:100%;
+}
+.forgotLink{
+  font-size:0.9rem;
+  color:var(--primary);
+  text-decoration:none;
+  opacity:0.95;
+}
+.forgotLink:hover{ text-decoration:underline; opacity:1 }
+
 /* Form title */
 .form h2 {
   margin-bottom: 20px;
