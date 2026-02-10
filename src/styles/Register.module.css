@@ -1,3 +1,17 @@
+/* Browser-specific fixes to hide the native "extra" eye icon */
+.input::-ms-reveal,
+.input::-ms-clear {
+  display: none;
+}
+
+.input::-webkit-contacts-auto-fill-button,
+.input::-webkit-credentials-auto-fill-button {
+  visibility: hidden;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+}
+
 .container {
   display: flex;
   justify-content: center;
@@ -7,7 +21,6 @@
   min-height: 100vh;
 }
 
-/* Form */
 .form {
   background: var(--surface);
   padding: 2rem;
@@ -46,7 +59,6 @@
   text-align: center;
 }
 
-/* Link container text */
 .linkText {
   margin-top: 14px;
   text-align: center;
@@ -54,7 +66,6 @@
   color: var(--muted);
 }
 
-/* Actual link */
 .link {
   color: var(--primary);
   font-weight: 600;
@@ -65,7 +76,6 @@
   text-decoration: underline;
 }
 
-/* Form title */
 .form h2 {
   margin-bottom: 20px;
   text-align: center;
@@ -78,12 +88,17 @@
 .inputGroup {
   width: 100%;
   margin-bottom: 16px;
+}
+
+/* NEW: This wrapper ensures the eye centers only on the input field */
+.inputWrapper {
   position: relative;
+  width: 100%;
 }
 
 .input {
   width: 100%;
-  padding: 12px 40px 12px 12px; /* Right padding for eye icon */
+  padding: 12px 40px 12px 12px;
   border: 1px solid var(--divider);
   border-radius: 6px;
   font-size: 1rem;
@@ -91,14 +106,13 @@
   box-sizing: border-box;
 }
 
-/* Input focus */
 .input:focus {
   outline: none;
   border-color: var(--primary);
   box-shadow: 0 0 0 2px rgba(79,70,229,0.08);
 }
 
-/* Password toggle button */
+/* Password toggle button - Centered vertically within .inputWrapper */
 .passwordToggle {
   position: absolute;
   right: 12px;
@@ -113,15 +127,11 @@
   align-items: center;
   justify-content: center;
   transition: color 0.2s;
+  z-index: 2;
 }
 
 .passwordToggle:hover {
   color: var(--primary);
-}
-
-.passwordToggle:focus {
-  outline: none;
-  color: #0b5ed7;
 }
 
 .passwordToggle svg {
@@ -129,7 +139,6 @@
   height: 20px;
 }
 
-/* Buttons */
 .button {
   width: 100%;
   padding: 12px;
@@ -152,7 +161,6 @@
   transform: scale(0.98);
 }
 
-/* Message result */
 .result {
   margin-top: 16px;
   padding: 12px;
@@ -163,7 +171,6 @@
   border: 1px solid transparent;
 }
 
-/* Validation hint text */
 .validationHint {
   font-size: 0.8rem;
   color: var(--muted);
@@ -172,7 +179,7 @@
   line-height: 1.4;
 }
 
-/* Responsive tweaks for small screens */
+/* Responsive */
 @media (max-width: 768px) {
   .container {
     flex-direction: column;
@@ -181,42 +188,8 @@
 }
 
 @media (max-width: 480px) {
-  .form,
-  .aboutSection {
-    padding: 1.5rem;
-  }
-  
-  .container {
-    padding: 1rem;
-  }
-
-  .linkText {
-    font-size: 0.85rem;
-  }
-
-  .input,
-  .button {
-    padding: 10px;
-    font-size: 0.95rem;
-  }
-
-  .form h2 {
-    font-size: 1.5rem;
-  }
-
-  .aboutSection h3 {
-    font-size: 1.3rem;
-  }
-
-  .input {
-    padding: 10px 36px 10px 10px;
-  }
-
-  .passwordToggle {
-    right: 10px;
-  }
-
-  .validationHint {
-    font-size: 0.75rem;
-  }
+  .form, .aboutSection { padding: 1.5rem; }
+  .container { padding: 1rem; }
+  .input, .button { padding: 10px; font-size: 0.95rem; }
+  .input { padding: 10px 36px 10px 10px; }
 }

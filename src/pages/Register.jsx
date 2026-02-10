@@ -96,113 +96,119 @@ export default function Register() {
             </span>
           </div>
 
-          <div className={styles.inputGroup}>
-            <input
-              ref={firstnameRef}
-              className={styles.input}
-              type="text"
-              placeholder="First Name"
-              required
-              pattern="^[A-Za-z]{2,}$"
-              title="First name must contain only letters (min 2)"
-              autoComplete="given-name"
-            />
-            <span className={styles.validationHint}>
-              Letters only, min 2 characters
-            </span>
-          </div>
+          {/* First Name */}
+<div className={styles.inputGroup}>
+  <input
+    ref={firstnameRef}
+    className={styles.input}
+    type="text"
+    placeholder="First Name"
+    required
+    pattern="^[A-Za-z]{2,}$"
+    title="First name must contain only letters (min 2)"
+    autoComplete="given-name"
+  />
+  <span className={styles.validationHint}>
+    Letters only, min 2 characters
+  </span>
+</div>
 
-          <div className={styles.inputGroup}>
-            <input
-              ref={lastnameRef}
-              className={styles.input}
-              type="text"
-              placeholder="Last Name"
-              required
-              pattern="^[A-Za-z]{2,}$"
-              title="Last name must contain only letters (min 2)"
-              autoComplete="family-name"
-            />
-            <span className={styles.validationHint}>
-              Letters only, min 2 characters
-            </span>
-          </div>
+{/* Last Name */}
+<div className={styles.inputGroup}>
+  <input
+    ref={lastnameRef}
+    className={styles.input}
+    type="text"
+    placeholder="Last Name"
+    required
+    pattern="^[A-Za-z]{2,}$"
+    title="Last name must contain only letters (min 2)"
+    autoComplete="family-name"
+  />
+  <span className={styles.validationHint}>
+    Letters only, min 2 characters
+  </span>
+</div>
 
-          <div className={styles.inputGroup}>
-            <input
-              ref={emailRef}
-              className={styles.input}
-              type="email"
-              placeholder="Email"
-              required
-              autoComplete="email"
-            />
-            <span className={styles.validationHint}>
-              Enter a valid email address
-            </span>
-          </div>
+{/* Email */}
+<div className={styles.inputGroup}>
+  <input
+    ref={emailRef}
+    className={styles.input}
+    type="email"
+    placeholder="Email"
+    required
+    autoComplete="email"
+  />
+  <span className={styles.validationHint}>
+    Enter a valid email address
+  </span>
+</div>
 
-          <div className={styles.inputGroup}>
-            <input
-              ref={passwordRef}
-              className={styles.input}
-              type={showPassword ? "text" : "password"}
-              placeholder="Password"
-              required
-              pattern="^(?=.*[A-Za-z])(?=.*\d).{6,}$"
-              title="Password must be at least 6 characters and contain letters and numbers"
-              autoComplete="new-password"
-            />
-            <button
-              type="button"
-              className={styles.passwordToggle}
-              onClick={togglePasswordVisibility}
-              aria-label={showPassword ? "Hide password" : "Show password"}
-            >
-              {showPassword ? (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c4.756 0 8.774-3.162 10.065-7.5.19-.563.19-1.185 0-1.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                  />
-                </svg>
-              ) : (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"
-                  />
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                  />
-                </svg>
-              )}
-            </button>
-            <span className={styles.validationHint}>
-              Min 6 characters with letters and numbers
-            </span>
-          </div>
+{/* Password */}
+<div className={styles.inputGroup}>
+  <div className={styles.inputWrapper}>
+    <input
+      ref={passwordRef}
+      className={styles.input}
+      type={showPassword ? "text" : "password"}
+      placeholder="Password"
+      required
+      pattern="^(?=.*[A-Za-z])(?=.*\d).{6,}$"
+      title="Password must be at least 6 characters and contain letters and numbers"
+      autoComplete="new-password"
+    />
+    <button
+      type="button"
+      className={styles.passwordToggle}
+      onClick={togglePasswordVisibility}
+      aria-label={showPassword ? "Hide password" : "Show password"}
+    >
+      {showPassword ? (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={1.5}
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c4.756 0 8.774-3.162 10.065-7.5.19-.563.19-1.185 0-1.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+          />
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+          />
+        </svg>
+      ) : (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={1.5}
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"
+          />
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+          />
+        </svg>
+      )}
+    </button>
+  </div>
+  <span className={styles.validationHint}>
+    Min 6 characters with letters and numbers
+  </span>
+</div>
 
           <button className={styles.button} type="submit">
             Create Account
