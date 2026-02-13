@@ -10,9 +10,21 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
-    <div style="transform: scale(0.8); transform-origin: bottom left; position: fixed; bottom: 20px; left: 20px; z-index: 9999;">
-    <elevenlabs-convai agent-id="agent_1301khbh1x8pekxb87kzfnmttwnh"></elevenlabs-convai>
-      </div>
-<script src="https://elevenlabs.io/convai-widget/index.js" async type="text/javascript"></script>
+    <div style="
+    position: fixed; 
+    bottom: 10px; 
+    right: 10px; 
+    z-index: 9999; 
+    transform: scale(0.9); 
+    transform-origin: bottom left;
+    width: 410px; 
+    height: 610px;
+    pointer-events: none;
+">
+    <div style="pointer-events: all;">
+        <elevenlabs-convai agent-id="agent_1301khbh1x8pekxb87kzfnmttwnh"></elevenlabs-convai>
+    </div>
+</div>
+<script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
   </body>
 </html>
